@@ -1,0 +1,134 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --color-one: #fff5ec; /* cards */
+  --color-two: #ffffff; /* background */
+  --color-three: #48bccf; /* header */
+  --color-four: #f8e7c9; /* modal form */
+}
+
+#main-container {
+  min-height: 100vh;
+  display: grid;
+  background-color: var(--color-two);
+  grid-template-rows: 1fr 10fr;
+
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0px 1px 5px black;
+  background-color: var(--color-three);
+}
+
+.btn {
+  padding: 5px;
+}
+
+/* add new book to list modal */
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  display: none;
+}
+
+.modal-form {
+  width: 300px;
+  height: 400px;
+  margin: 15% auto;
+  background-color: var(--color-four);
+  box-shadow: 2px 2px 15px #a7a9a4;
+  position: relative;
+  border-radius: 10px;
+}
+
+.modal-form > ul {
+  list-style: none;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-form > ul > li > label {
+  font-weight: 700;
+}
+
+.closeBtn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: auto;
+}
+.closeBtn > img {
+  height: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 5px 0;
+}
+.input-container > input {
+  border: none;
+  padding: 5px;
+  background-color: var(--color-two);
+}
+
+.input-container > fieldset {
+  border: none;
+  padding: 5px;
+}
+
+/* books container */
+
+.books-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  grid-template-rows: 250px;
+  grid-auto-rows: 250px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  background-color: var(--color-one);
+  box-shadow: 1px 2px 5px #a7a9a4;
+  display: flex;
+  flex-direction: column;
+}
+
+.card > p:nth-child(4) {
+  margin-bottom: auto;
+}
+
+.card > button {
+  margin: 5px 0;
+  width: auto;
+}

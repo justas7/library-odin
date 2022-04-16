@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="modal">
+      <form class="modal-form" action="#" method="get">
+        <button class="closeBtn btn" type="button">
+          <img src="icons8-close-30.png" alt="close" />
+        </button>
+        <ul>
+          <li class="input-container">
+            <label for="title">Title:</label>
+            <input id="title" name="title" type="text" />
+          </li>
+          <li class="input-container">
+            <label for="author">Author:</label>
+            <input id="author" name="author" type="text" />
+          </li>
+          <li class="input-container">
+            <label for="pages">Pages:</label>
+            <input id="pages" name="pages" type="number" />
+          </li>
+          <li class="input-container">
+            <fieldset>
+              <legend>Have you read it?</legend>
+              <label for="read">Yes</label>
+              <input id="read" name="read" type="checkbox" />
+            </fieldset>
+          </li>
+          <li class="input-container">
+            <button class="btn" type="button" id="addBtn">Add Book</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <div id="main-container">
+      <header class="header">
+        <h1>My Books List</h1>
+        <button class="modalBtn btn">New Book</button>
+      </header>
+      <div class="books-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
