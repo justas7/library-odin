@@ -16,7 +16,7 @@ class Book {
     this.read = read;
   }
 
-  static newBook = function () {
+  static newBook() {
     this.title = document.querySelector("#title").value;
     this.author = document.querySelector("#author").value;
     this.pages = document.querySelector("#pages").value;
@@ -25,7 +25,7 @@ class Book {
     let book = new Book(id, this.title, this.author, this.pages, this.read);
     id++;
     return book;
-  };
+  }
 }
 
 class Library {
@@ -137,3 +137,181 @@ addBtn.addEventListener("click", displayController.closeForm);
 modalBtn.addEventListener("click", displayController.openForm);
 closeBtn.addEventListener("click", displayController.closeForm);
 modal.addEventListener("click", displayController.closeForm);
+
+// random
+
+class Car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} going at ${this.speed} km/h`);
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} going at ${this.speed} km/h`);
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(val) {
+    this.speed = val * 1.6;
+  }
+}
+
+class EV extends Car {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    console.log(`${this.make} going at ${this.speed} km/h, with a charge of ${this.#charge}`);
+    return this;
+  }
+}
+
+const tesla = new EV("Tesla", 40, 90);
+const vw = new EV("Volkswagen", 60, 50);
+console.log(tesla);
+console.log(vw);
+
+// tesla.accelerate();
+// tesla.accelerate();
+// tesla.accelerate();
+// tesla.brake();
+// tesla.chargeBattery(100);
+// console.log(tesla.charge);
+
+// console.log(tesla.__proto__.constructor === Car);
+
+// let car3 = new Car("Ford", 120);
+// car3.accelerate();
+// car3.brake();
+// console.log(car3.speedUS);
+// console.log((car3.speedUS = 20));
+// console.log(car3.speed);
+
+// let Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   console.log(`${this.make} going at ${this.speed} km/h`);
+// };
+
+// Car.prototype.brake = function () {
+//   this.speed -= 5;
+//   console.log(`${this.make} going at ${this.speed} km/h`);
+// };
+
+// let EV = function (make, speed, charge) {
+//   Car.call(this, make, speed);
+//   this.charge = charge;
+// };
+
+// EV.prototype = Object.create(Car.prototype);
+
+// EV.prototype.chargeBattery = function (chargeTo) {
+//   this.charge = chargeTo;
+// };
+
+// EV.prototype.accelerate = function () {
+//   this.speed += 20;
+//   this.charge--;
+//   console.log(`${this.make} going at ${this.speed} km/h, with a charge of ${this.charge}`);
+// };
+
+// EV.prototype.constructor = EV;
+// const tesla = new EV("Tesla", 40, 90);
+// console.log(tesla);
+
+// tesla.accelerate();
+// tesla.accelerate();
+// tesla.accelerate();
+// tesla.brake();
+// tesla.chargeBattery(100);
+// console.log(tesla.charge);
+
+// console.log(tesla.__proto__.constructor === Car);
+
+// let car1 = new Car("BMW", 120);
+// let car2 = new Car("Mercedes", 95);
+
+// car1.accelerate();
+// car2.accelerate();
+// car2.brake();
+
+// console.log(Car.sound);
+// console.log(car1.speedUS);
+
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
+
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
+
+// const Student = function (firstName, birthYear, course) {
+//   Person.call(this, firstName, birthYear);
+//   this.course = course;
+// };
+
+// Student.prototype = Object.create(Person.prototype);
+// const mike = new Student("Mike", 2020, "Computer Science");
+
+// Student.prototype.introduce = function () {
+//   console.log(`Hi, my name is ${this.firstName} and I study ${this.course}`);
+// };
+
+// mike.calcAge();
+
+// class Account {
+//   //Public fields(each instance gets its own)
+//   locale = navigator.language;
+
+//   //Privat fields
+//   #movements = [];
+//   #pin;
+
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this.#pin = pin;
+//     // this.movements = [];
+//     // this.locale = navigator.language;
+//   }
+
+//   sayHi() {
+//     console.log("hi");
+//   }
+
+//   //Private methods
+//   #approveLoan(val) {
+//     return true;
+//   }
+// }
+
+// const acc1 = new Account("Jonas", "Eur", 1111);
+// const acc2 = new Account("Jay", "Eur", 2222);
+// console.log(acc1);
+
+// console.log(acc2);
+// console.log(Account.prototype.owner);
